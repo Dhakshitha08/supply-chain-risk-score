@@ -95,3 +95,19 @@ recompute a filter differently across separate operations on the same
 lazy chain — resolved by writing filtered results to Parquet and reading
 them back ("materializing") before using them in a new model fit, rather
 than chaining transformations indefinitely.
+
+## Attempted restoration of full-scale npm run (Week 7)
+Attempted to rerun npm's Signal 1 at full scale (4,515,551 names) on Kaggle
+Notebooks after Databricks/Colab constraints blocked this in Week 4.
+Hit consistent OutOfMemoryError failures during the similarity join step
+across multiple configurations (default settings, explicit 20GB/10GB/6GB
+driver memory, reduced shuffle partitions, reduced file partition size,
+and a 1.5M-row subset) — all failed at the join/shuffle stage specifically,
+not at data loading. This points to a hard memory ceiling on the specific
+free container allocated, not a tunable configuration issue.
+
+**Decision:** retained the original 20,000-name representative sample
+(Week 4) as the final npm Signal 1 result. Full-scale npm processing
+would require paid-tier compute with guaranteed larger memory allocation
+— noted as a concrete, costed path for future work rather than pursued
+further within the free-tier constraints of this project.

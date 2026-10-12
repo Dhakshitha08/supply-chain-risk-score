@@ -35,4 +35,4 @@ of adoption — is what makes this different.
 - Person B (Graph DB/Product): graph schema, blast radius, scoring formula, dashboard
 
 ## Status
-Week 1 — environment setup in progress (GitHub repo + Databricks configured).
+Signal 1, Signal 3, and Signal 2 all merged into main
